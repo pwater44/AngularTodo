@@ -18,7 +18,8 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldBeanServiceWithPathVariable(name) {
-    let basicAuthHeaderString = this.executeHelloWorldBeanService()
+    console.log("ehelloWorldPathVariable")
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader()
     let header = new HttpHeaders ({
       Authorization: basicAuthHeaderString})
     return this.http.get<HelloWorldBean>(
@@ -29,7 +30,7 @@ export class WelcomeDataService {
     let username = 'user'
     let password = 'simtek'
     let basicAuthHeaderString = 'Basic ' + window.btoa (
-    username + password)
+    username + ':' + password)
     return basicAuthHeaderString
   }
 
